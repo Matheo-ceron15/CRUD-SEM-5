@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GuiaPracticaSem5</string>
+
+    <string name="dato1">Codigo de articulo</string>
+    <string name="dato2">Descripcion</string>
+    <string name="dato3">Precio</string>
+    <string name="titulo">CRUD SQLite</string>
+</resources>

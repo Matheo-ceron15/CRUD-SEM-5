@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView android:textSize="30.0dip"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="300.0dip"
+                android:layout_height="200.0dip"
+                android:src="@drawable/producto2" />
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/color1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20.0dip"
+                android:text="@string/dato1" />
+
+            <EditText
+                android:id="@+id/codigo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese el codigo del producto"
+                android:inputType="number" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/color1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dato2" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese una descripcion del producto"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/color1"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dato3" />
+
+            <EditText
+                android:id="@+id/precio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el precion del producto"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30.0dip"
+                android:layout_marginRight="15.0dip">
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/guardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GUARDAR" />
+                <!--                    android:onClick="guardar"-->
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/consultar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:text="Consultar por codigo" />
+                <!--                    android:onClick="consultaCodigo"-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15.0dip">
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/consultarDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5.0dip"
+                    android:text="Consultar por descripcion" />
+                <!--                    android:onClick="consultaDescri"-->
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/eliminar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ELIMINAR" />
+                <!--                    android:onClick="eliminar"-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15.0dip">
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/modificar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5.0dip"
+                    android:text="MODIFICAR" />
+                <!--                    android:onClick="modificar"-->
+
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/salir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salir" />
+                <!--                    android:onClick="salir"-->
+                <Button
+                    android:textSize="10.0dip"
+                    android:id="@+id/nuevo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:text="NUEVO" />
+                <!--                    android:onClick="nuevo"-->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

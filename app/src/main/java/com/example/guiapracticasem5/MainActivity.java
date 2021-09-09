@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText et1, et2, et3;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7;
     AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion.db", null,1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -50,17 +51,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         SQLiteDatabase bd = admin.getWritableDatabase();
-
+        String codigo = et1.getText().toString();
+        String descripcion = et2.getText().toString();
+        String precio = et3.getText().toString();
         switch (view.getId()){
 
             case R.id.guardar:
-
-                String codigo = et1.getText().toString();
-                String descripcion = et2.getText().toString();
-                String precio = et3.getText().toString();
-
                 ContentValues registro = new ContentValues();
-
                 registro.put("codigo", codigo);
                 registro.put("descripcion", descripcion);
                 registro.put("precio", precio);

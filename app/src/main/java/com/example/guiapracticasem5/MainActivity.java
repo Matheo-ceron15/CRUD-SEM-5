@@ -51,13 +51,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         SQLiteDatabase bd = admin.getWritableDatabase();
+        ContentValues registro = new ContentValues();
+
         String codigo = et1.getText().toString();
         String descripcion = et2.getText().toString();
         String precio = et3.getText().toString();
+
+
         switch (view.getId()){
 
             case R.id.guardar:
-                ContentValues registro = new ContentValues();
+
                 registro.put("codigo", codigo);
                 registro.put("descripcion", descripcion);
                 registro.put("precio", precio);
@@ -78,109 +82,81 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "Se cargaron los datos del articulo", Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case R.id.consultar:
+//                                                    METODO CONSULTAR POR CODIGO
+                if (codigo.isEmpty()) {
+                    et1.setError("campo obligatorio");
+                }else{
+                    Cursor fila = bd.rawQuery("select descripcion, precio from articulos where codigo=" + codigo, null);
+                    if (fila.moveToFirst()){
+                        et2.setText(fila.getString(0));
+                        et3.setText(fila.getString(1));
+                    }else{
+                        Toast.makeText(this, "No existe un articulo con dicho codigo", Toast.LENGTH_SHORT).show();
+                        bd.close();
+                    }
+                }
+                break;
 
-//            case R.id.consultar:
-//                    //consultarCodigo();
-////                //                                          METODO CONSULTAR PR CODIGO
-////                String codigo = et1.getText().toString();
-////                String descripcion = et2.getText().toString();
-////                String precio = et3.getText().toString();
-//                if (codigo.isEmpty()) {
-//                    et1.setError("campo obligatorio");
-//                }else if (descripcion.isEmpty()){
-//                    et2.setError("campo obligatorio");
-//                }else if (precio.isEmpty()) {
-//                    et3.setError("campo obligatorio");
-//                }else{
-//                    Cursor fila = bd.rawQuery("select descripcion, precio from articulos where codigo=" + codigo, null);
-//                    if (fila.moveToFirst()){
-//                        et2.setText(fila.getString(0));
-//                        et3.setText(fila.getString(1));
-//                    }else{
-//                        Toast.makeText(this, "No existe un articulo con dicho codigo", Toast.LENGTH_SHORT).show();
-//                        bd.close();
-//                    }
-//                }
-//                break;
+            case R.id.consultarDescripcion:
+                //                                      METODO CONSULTAR POR DESCRIPCION
 
+                if (descripcion.isEmpty()) {
+                    et2.setError("campo obligatorio");
+                }else{
+                    Cursor filas= bd.rawQuery("select codigo, precio from articulos where descripcion='" + descripcion +"'", null);
+                    if (filas.moveToFirst()){
+                        et1.setText(filas.getString(0));
+                        et3.setText(filas.getString(1));
+                    }else{
+                        Toast.makeText(this, "No existe un articulo con dicha descripcion", Toast.LENGTH_SHORT).show();
+                        bd.close();
+                    }
+                }
 
+                break;
 
-//            case R.id.consultarDescripcion:
-//                    //consultarDescrip();
-////                String codigo = et1.getText().toString();
-////                String descripcion = et2.getText().toString();
-////                String precio = et3.getText().toString();
-////                AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null,1);
-////                SQLiteDatabase bd = admin.getWritableDatabase();
-//                //                                      METODO CONSULTAR POR DESCRIPCION
-//                if (codigo.isEmpty()) {
-//                    et1.setError("campo obligatorio");
-//                }else if (descripcion.isEmpty()){
-//                    et2.setError("campo obligatorio");
-//                }else if (precio.isEmpty()) {
-//                    et3.setError("campo obligatorio");
-//                }else{
-//                    Cursor fila= bd.rawQuery("select codigo, precio fron articulos where descripcion='" + descripcion +"'", null);
-//                    if (fila.moveToFirst()){
-//                        et1.setText(fila.getString(0));
-//                        et3.setText(fila.getString(1));
-//                    }else{
-//                        Toast.makeText(this, "No existe un articulo con dicha descripcion", Toast.LENGTH_SHORT).show();
-//                        bd.close();
-//                    }
-//                }
-//                break;
-
-
-
-//            case R.id.eliminar:
-//                if (codigo.isEmpty()) {
-//                    et1.setError("campo obligatorio");
-//                }else if (descripcion.isEmpty()){
-//                    et2.setError("campo obligatorio");
-//                }else if (precio.isEmpty()) {
-//                    et3.setError("campo obligatorio");
-//                }else{
-//                    int cant = bd.delete("articulos", "codigo=" + codigo, null);
-//                    bd.close();
-//                    et1.setText("");
-//                    et2.setText("");
-//                    et3.setText("");
-//                    if (cant == 1){
-//                        Toast.makeText(this, "Se borro el articulocon dicho codigo", Toast.LENGTH_SHORT).show();
-//                    }else{
-//                        Toast.makeText(this, "No existe un articulo con dicho codigo", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                break;
+            case R.id.eliminar:
+                                            //METODO ELIMINAR
+                if (codigo.isEmpty()) {
+                    et1.setError("campo obligatorio");
+                }else{
+                    int cant = bd.delete("articulos", "codigo=" + codigo, null);
+                    bd.close();
+                    et1.setText("");
+                    et2.setText("");
+                    et3.setText("");
+                    if (cant == 1){
+                        Toast.makeText(this, "Se borro el articulocon dicho codigo", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "No existe un articulo con dicho codigo", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
 
 
 
-//            case R.id.modificar:
-//                        //modificar();
-//                //                                          METODO ELIMINAR
-////                String codigo = et1.getText().toString();
-////                String descripcion = et2.getText().toString();
-////                String precio = et3.getText().toString();
-//                if (codigo.isEmpty()) {
-//                    et1.setError("campo obligatorio");
-//                }else if (descripcion.isEmpty()){
-//                    et2.setError("campo obligatorio");
-//                }else if (precio.isEmpty()) {
-//                    et3.setError("campo obligatorio");
-//                }else{
-//                    registro.put("codigo", codigo);
-//                    registro.put("descripcion", descripcion);
-//                    registro.put("precion", precio);
-//                    int cant1 = bd.update("articulos", registro, "codigo=" + codigo, null);
-//                    bd.close();
-//                    if (cant1 ==1){
-//                        Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show();
-//                    }else{
-//                        Toast.makeText(this, "no existe un articulo con el codigo ingresado", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                break;
+            case R.id.modificar:
+                //                                          METODO ELIMINAR
+                if (codigo.isEmpty()) {
+                    et1.setError("campo obligatorio");
+                }else if (descripcion.isEmpty()){
+                    et2.setError("campo obligatorio");
+                }else if (precio.isEmpty()) {
+                    et3.setError("campo obligatorio");
+                }else{
+                    registro.put("codigo", codigo);
+                    registro.put("descripcion", descripcion);
+                    registro.put("precio", precio);
+                    int cant = bd.update("articulos", registro, "codigo=" + codigo, null);
+                    bd.close();
+                    if (cant ==1){
+                        Toast.makeText(this, "Se modificaron los datos", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "no existe un articulo con el codigo ingresado", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
 
 
             case R.id.salir:

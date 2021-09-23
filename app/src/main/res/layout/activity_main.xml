@@ -135,14 +135,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15.0dip">
 
+                <!--                    android:onClick="modificar"-->
+
                 <Button
-                    android:textSize="10.0dip"
                     android:id="@+id/modificar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5.0dip"
-                    android:text="MODIFICAR" />
-                <!--                    android:onClick="modificar"-->
+                    android:text="MODIFICAR"
+                    android:textSize="10.0dip" />
 
                 <Button
                     android:textSize="10.0dip"
@@ -160,6 +161,7 @@
                     android:text="NUEVO" />
                 <!--                    android:onClick="nuevo"-->
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

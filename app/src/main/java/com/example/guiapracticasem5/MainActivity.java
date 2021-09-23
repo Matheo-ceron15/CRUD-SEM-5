@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "Se cargaron los datos del articulo", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.consultar:
 //                                                    METODO CONSULTAR POR CODIGO
                 if (codigo.isEmpty()) {
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.modificar:
-                //                                          METODO ELIMINAR
+                //                                          METODO Modificar
                 if (codigo.isEmpty()) {
                     et1.setError("campo obligatorio");
                 }else if (descripcion.isEmpty()){
@@ -155,10 +156,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }else{
                         Toast.makeText(this, "no existe un articulo con el codigo ingresado", Toast.LENGTH_SHORT).show();
                     }
+
                 }
+
                 break;
-
-
             case R.id.salir:
                     finish();
                 break;

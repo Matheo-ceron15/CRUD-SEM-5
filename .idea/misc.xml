@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ITCA/Documents/CRUD-SEM-5/app/src/main/res/layout/activity_main.xml" value="0.33" />
+<<<<<<< Updated upstream
         <entry key="..\:/Users/ITCA/Documents/CRUD-SEM-5/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/Desktop/Androi Studio/GuiaPracticaSem5/app/src/main/res/layout/activity_main.xml" value="0.25" />
+=======
+        <entry key="..\:/Users/Usuario/Desktop/Androi Studio/GuiaPracticaSem5/app/src/main/res/layout/activity_main.xml" value="0.22" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
